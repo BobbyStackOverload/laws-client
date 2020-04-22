@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <Route exact path='/' component={LawsList} />
-        <Route exact path ='/state/:state?' component={StateLaw} />
+        <Route exact path ='/laws/:state?' component={StateLaw} />
       </Router>
     </div>
   );

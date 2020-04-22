@@ -19,7 +19,7 @@ class LawsList extends Component {
       }
     
       generateLaws = async () => {
-        const url = "http://localhost:3000";
+        const url = "http://localhost:3000/laws/types";
         fetch (url)
         .then(response => response.json())
         .then(jsondata => this.setState({
@@ -38,8 +38,9 @@ class LawsList extends Component {
                 <h1>Laws</h1>
                 <ul>
                     {lawsData.map(element => (
+                        
                         <div key={element.id}> <br></br>
-                        <Link to={`/state/${element.states}`}>{element.states} Laws</Link>
+                        <Link to={`/laws/${element.laws}`}>{element.laws} Laws</Link>
                         </div>
                     ))}
                 </ul>

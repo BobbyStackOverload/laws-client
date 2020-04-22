@@ -32,7 +32,7 @@ class StateLaw extends Component {
         console.log("On the route law data", lawsData)
             for (let i = 0; i < lawsData.length; i++) {
                 if (this.props.match.params.state === lawsData[i].states) {
-                    console.log("data on state",lawsData[i])
+                    console.log("data on state" ,lawsData[i])
         return (
             <div className="lawPost">               
                 <h1>{this.props.match.params.state}</h1>            
