@@ -19,7 +19,7 @@ class LawsList extends Component {
       }
     
       generateLaws = async () => {
-        const url = "http://localhost:3000/laws/types";
+        const url = "http://localhost:3000";
         fetch (url)
         .then(response => response.json())
         .then(jsondata => this.setState({
