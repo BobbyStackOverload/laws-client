@@ -2,12 +2,9 @@ import React, { Component } from 'react';
 
 
 class StateLaw extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: []
-        };
-    } 
+    state = {
+        data: {}
+    };
 
     async componentDidMount() {
         const data = await this.generateLaws();
@@ -17,32 +14,24 @@ class StateLaw extends Component {
       }
     
       generateLaws = async () => {
-        const url = "http://localhost:3000";
-        fetch (url)
-        .then(response => response.json())
-        .then(jsondata => this.setState({
-            data: jsondata
-        })) 
-        return this.state.data;
+        const statesId = this.props.match.params.states_id
+        const url = `http://localhost:3000/${statesId}`;
+        const response = await fetch(url);
+        const data = response.json();
+        return data;
       };
 
     render() {
-        if (this.state.data !== 0) {
-        const lawsData = this.state.data;
-        console.log("On the route law data", lawsData)
-            for (let i = 0; i < lawsData.length; i++) {
-                if (this.props.match.params.state === lawsData[i].states) {
-                    console.log("data on state" ,lawsData[i])
+        console.log(this.props);
+        const { data } = this.state;
         return (
-            <div className="lawPost">               
-                <h1>{this.props.match.params.state}</h1>            
+            <div>
+            <h2>{data.title}</h2>
+            <p>{data.content}</p>
             </div>
-        )
-        } else {
-            return <div>Loading data....</div>
-        }
+            );
+
     }
-}
- }
-}
+};
+ 
 export default StateLaw;

@@ -13,17 +13,17 @@ function App() {
       <Router>
     <div className="App">
       <Nav />
-        <Route exact path='/' component={Home} />
-        <Route exact path='/laws/types' component={LawsList} />
-        <Route exact path ='/laws' component={StateLaw} />
+        <Route exact path='/' component={LawsList} />
+        {/* <Route exact path='/laws/types' component={LawsList} /> */}
+        <Route exact path ='/:statesId?' component={StateLaw} />
     </div>
       </Router>
   );
 }
-const Home = () => (
-  <div>
-    <h1>Law Recall</h1>
-  </div>
-);
+// const Home = () => (
+//   <div>
+//     <h1>Law Recall</h1>
+//   </div>
+// );
 
 export default App;

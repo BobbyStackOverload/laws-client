@@ -37,10 +37,9 @@ class LawsList extends Component {
             <div>
                 <h1>Laws</h1>
                 <ul>
-                    {lawsData.map(element => (
-                        
+                    {lawsData.map(element => (    
                         <div key={element.id}> <br></br>
-                        <Link to={`/laws/${element.laws}`}>{element.laws} Laws</Link>
+                        <Link to={`/${element.id}`}>{element.stateslist}</Link>
                         </div>
                     ))}
                 </ul>
