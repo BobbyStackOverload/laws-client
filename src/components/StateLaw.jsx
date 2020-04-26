@@ -12,17 +12,34 @@ class StateLaw extends Component {
           data
         });
       }
-    
+
       generateLaws = async () => {
-        const statesId = this.props.match.params.states_id
-        const url = `http://localhost:3000/${statesId}`;
-        const response = await fetch(url);
-        const data = response.json();
-        return data;
+          const statesId = this.props.match.params.statesId;
+          console.log("states is => ", statesId);
+          const url = `http://localhost:3000/states/${statesId}`;
+          fetch (url)
+          .then(response => response.json())
+          .then(jsondata => {
+              this.setState({
+                  data: jsondata
+              })
+          })
+          return this.state.data;
       };
+    
+    //   generateLaws = async () => {
+    //       console.log("the props => ", this.props.match);
+    //     const statesId = this.props.match.params.statesid
+    //     const url = `http://localhost:3000/${statesId}`;
+    //     const response = await fetch(url);
+    //     const data = response.json();
+    //     console.log("generateLaws function => ", data);
+    //     this.setState({data: data})
+    //     return data;
+    //   };
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         const { data } = this.state;
         return (
             <div>

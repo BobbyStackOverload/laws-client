@@ -29,7 +29,7 @@ class LawsList extends Component {
       };
 
     render() {
-        console.table(this.state.data)
+        // console.log(this.state.data)
         if (this.state.data !== 0) {
         const lawsData = this.state.data;
 
@@ -39,7 +39,7 @@ class LawsList extends Component {
                 <ul>
                     {lawsData.map(element => (    
                         <div key={element.id}> <br></br>
-                        <Link to={`/${element.id}`}>{element.stateslist}</Link>
+                        <Link to={`/states/${element.id}`}>{element.stateslist}</Link>
                         </div>
                     ))}
                 </ul>
