@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import {
     Link,
   } from 'react-router-dom';
+  import '../App.css';
 
-class LawsList extends Component {
+class StatesList extends Component {
     constructor() {
         super();
         this.state = {
@@ -29,20 +30,21 @@ class LawsList extends Component {
       };
 
     render() {
-        // console.log(this.state.data)
+        console.log(this.state.data)
         if (this.state.data !== 0) {
         const lawsData = this.state.data;
 
         return (
             <div>
-                <h1>Laws</h1>
-                <ul>
+     
+                                <h1>Select A State</h1>
+                <div className='statesWrapper'>
                     {lawsData.map(element => (    
-                        <div key={element.id}> <br></br>
+                        <button key={element.id}> 
                         <Link to={`/states/${element.id}`}>{element.stateslist}</Link>
-                        </div>
+                        </button>
                     ))}
-                </ul>
+                </div>
             </div>
         )
         } else {
@@ -51,4 +53,4 @@ class LawsList extends Component {
     }
 }
 
-export default LawsList;
+export default StatesList;

@@ -1,54 +1,46 @@
 import React, { Component } from 'react';
-
+import '../App.css';
 
 class StateLaw extends Component {
-    state = {
-        data: {}
+  constructor(props) {
+    super(props);
+    this.state = {
+        
     };
+}
 
     async componentDidMount() {
-        const data = await this.generateLaws();
-        this.setState({
-          data
-        });
+        this.generateLaws();        
       }
-
-      generateLaws = async () => {
-          const statesId = this.props.match.params.statesId;
-          console.log("states is => ", statesId);
-          const url = `http://localhost:3000/states/${statesId}`;
-          fetch (url)
-          .then(response => response.json())
-          .then(jsondata => {
-              this.setState({
-                  data: jsondata
-              })
-          })
-          return this.state.data;
-      };
     
-    //   generateLaws = async () => {
-    //       console.log("the props => ", this.props.match);
-    //     const statesId = this.props.match.params.statesid
-    //     const url = `http://localhost:3000/${statesId}`;
-    //     const response = await fetch(url);
-    //     const data = response.json();
-    //     console.log("generateLaws function => ", data);
-    //     this.setState({data: data})
-    //     return data;
-    //   };
+      generateLaws = async () => {
+        const statesId = this.props.match.params.statesId
+        const url = `http://localhost:3000/states/${statesId}`;
+        fetch (url)
+        .then(response => response.json())
+        .then(jsondata => {
+          this.setState ({
+            data: jsondata
+          })
+        })
+        return this.state.data;
+      };
 
     render() {
-        // console.log(this.props);
-        const { data } = this.state;
+        console.log("the data on render", this.state.data);
+        console.log("the props =>", this.props)
+        const law  = this.state;
+        if (this.state.data !== undefined) {
         return (
-            <div>
-            <h2>{data.title}</h2>
-            <p>{data.content}</p>
+            <div className="lawWrapper">
+              {law.data.map(element =>
+                <div><br></br>{element.lawsinfo}</div>)}
             </div>
             );
-
+    } else {
+      return <div>loading....</div>
     }
-};
+  } 
+}
  
 export default StateLaw;

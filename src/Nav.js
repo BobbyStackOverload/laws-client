@@ -8,17 +8,14 @@ function Nav() {
     }
     return (
         <nav>
-            <h3>Damn Laws</h3>
+            <h1>LAW RECALL</h1>
             <ul className="nav-links">
                 <Link style={navStyle} to ='/'>
                     <li>Home</li>
                 </Link>
-                <Link style={navStyle} to='/laws'>
-                    <li>Laws</li>
+                <Link style={navStyle} to='/about'>
+                    <li>About</li>
                 </Link>  
-                <Link style={navStyle} to='/laws/types'> 
-                    <li>Types of laws</li>
-                </Link>
             </ul>
         </nav>
     )
