@@ -30,7 +30,6 @@ class StatesList extends Component {
       };
 
     render() {
-        console.log(this.state.data)
         if (this.state.data !== 0) {
         const lawsData = this.state.data;
 

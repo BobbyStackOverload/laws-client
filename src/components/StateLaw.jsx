@@ -5,7 +5,7 @@ class StateLaw extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        
+        data: []
     };
 }
 
@@ -27,14 +27,12 @@ class StateLaw extends Component {
       };
 
     render() {
-        console.log("the data on render", this.state.data);
-        console.log("the props =>", this.props)
         const law  = this.state;
         if (this.state.data !== undefined) {
         return (
             <div className="lawWrapper">
               {law.data.map(element =>
-                <div><br></br>{element.lawsinfo}</div>)}
+                <div className="lawsSep"><br></br>{element.lawsinfo}</div>)}
             </div>
             );
     } else {
